@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>centos7安装nginx的两种方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.去官网 http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;download.html下载tar.gz包或者(wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.9.9.tar.gz  ) 2.把文件解压出来 解压到&#x2F;user&#x2F;localtar -zxvf nginx-1.16.0.tar.gz 3.然后用yum安装依赖项yum install gcc pcre-devel zl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7安装nginx的两种方法">
+<meta property="og:url" content="http://yoursite.com/2020/07/11/centos7%E5%AE%89%E8%A3%85nginx%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.去官网 http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;download.html下载tar.gz包或者(wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.9.9.tar.gz  ) 2.把文件解压出来 解压到&#x2F;user&#x2F;localtar -zxvf nginx-1.16.0.tar.gz 3.然后用yum安装依赖项yum install gcc pcre-devel zl">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-10T16:53:25.767Z">
+<meta property="article:modified_time" content="2020-06-18T02:32:46.389Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-centos7安装nginx的两种方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/11/centos7%E5%AE%89%E8%A3%85nginx%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2020-07-10T16:53:25.767Z" itemprop="datePublished">2020-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      centos7安装nginx的两种方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.去官网 <a href="http://nginx.org/en/download.html下载tar.gz包或者" target="_blank" rel="noopener">http://nginx.org/en/download.html下载tar.gz包或者</a>(wget <a href="http://nginx.org/download/nginx-1.9.9.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.9.9.tar.gz</a>  )</p>
+<p>2.把文件解压出来 解压到/user/local<br>tar -zxvf nginx-1.16.0.tar.gz</p>
+<p>3.<br>然后用yum安装依赖项<br>yum install gcc pcre-devel zlib-devel<br>然后用yum安装依赖项<br>yum install gcc pcre-devel zlib-devel<br>如果没装以上相关的依赖，会在./configure过程中出现各种错误<br>下图是没装gcc包的错误，我看网上要装gcc-c++，但我发现我只安装gcc也没问题</p>
+<p>4.进入nginx-1.16.0目录后，输入命令./configure，这个命令会在目录里生成Makefile文件</p>
+<p>5.执行编译安装 make &amp;&amp; make install</p>
+<p>6.手动创建服务<br>cd /etc/systemd/system</p>
+<p>vi nginx.service</p>
+<p>将以下内容复制到nginx.service里保存退出，以下内容，我是从官方yum安装后的service里面复制修改的<br>[UNIT]</p>
+<p>Deion=nginx - high performance web server</p>
+<p>Documentation=<a href="http://nginx.org/en/docs/" target="_blank" rel="noopener">http://nginx.org/en/docs/</a></p>
+<p>After=network-online.target remote-fs.target nss-lookup.target</p>
+<p>Wants=network-online.target</p>
+<p>[Service]</p>
+<p>Type=forking</p>
+<p>PIDFile=/usr/local/nginx/logs/nginx.pid</p>
+<p>ExecStart=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf</p>
+<p>ExecReload=/bin/kill -s HUP $MAINPID</p>
+<p>ExecStop=/bin/kill -s TERM $MAINPID</p>
+<p>[Install]</p>
+<p>WantedBy=multi-user.target</p>
+<p>7.然后将nginx设置为开机启动</p>
+<p>systemctl enable nginx</p>
+<p>8.service nginx start<br>访问地址出现nginx的欢迎界面</p>
+<p>通过Yum安装Nginx<br>这种方式是非常简单方便，nginx官网上也有介绍</p>
+<p><a href="http://nginx.org/en/linux_packages.html#RHEL-CentOS" target="_blank" rel="noopener">http://nginx.org/en/linux_packages.html#RHEL-CentOS</a></p>
+<p>官方说明就是在/etc/yum.repo.d目录下面创建一个nginx的yum源，然后就可以直接用yum install nginx安装了，超级简单，这种方式就直接帮你把服务、都安装好了</p>
+<p>cd /etc/yum.repo.d #切换到yum安装源文件目录</p>
+<p>vi nginx.repo #创建一个安装包源</p>
+<p>把以下内容复制进去，保存退出</p>
+<p>[nginx-stable]</p>
+<p>name=nginx stable repo</p>
+<p>baseurl=<a href="http://nginx.org/packages/centos/$releasever/$basearch/" target="_blank" rel="noopener">http://nginx.org/packages/centos/$releasever/$basearch/</a></p>
+<p>gpgcheck=1</p>
+<p>enabled=1</p>
+<p>gpgkey=<a href="https://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">https://nginx.org/keys/nginx_signing.key</a></p>
+<p>[nginx-mainline]</p>
+<p>name=nginx mainline repo</p>
+<p>baseurl=<a href="http://nginx.org/packages/mainline/centos/$releasever/$basearch/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/centos/$releasever/$basearch/</a></p>
+<p>gpgcheck=1</p>
+<p>enabled=0</p>
+<p>gpgkey=<a href="https://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">https://nginx.org/keys/nginx_signing.key</a></p>
+<p>然后查看一下是否成功加载了这个安装源</p>
+<p>yum repolist</p>
+<p>原名称有一项叫nginx stable repo</p>
+<p>现在就可以通过yum安装nginx了</p>
+<p>yum install nginx<br>安装好后，直接用systemctl启动nginx服务</p>
+<p>systemctl enable nginx　　#设置nginx为开机启动</p>
+<p>systemctl start nginx　　#启动nginx服务</p>
+<p>。。然后记得把防火墙关了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/11/centos7%E5%AE%89%E8%A3%85nginx%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/" data-id="ckcggm4n8000490q79licd82p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/11/centos7%E4%B8%8B%E5%AE%89%E8%A3%85redis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          centos7下安装redis
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/11/PacketTooBigException/">PacketTooBigException</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/mariadb%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%8E%88%E6%9D%83%E7%9A%84%E8%AE%BE%E7%BD%AE/">mariadb远程连接授权的设置</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/mysql5.7%E5%AE%89%E8%A3%85/">mysql5.7安装</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/ConcurrentHashMap%E8%A7%A3%E6%9E%90/">ConcurrentHashMap解析</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/">centos7 yum成功配置安装Mariadb数据库</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

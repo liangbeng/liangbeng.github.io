@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>mariadb远程连接授权的设置 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.首先配置允许访问的用户，采用授权的方式给用户权限 GRANT ALL PRIVILEGES ON . TO ‘root’@’%’IDENTIFIED BY ‘123456’ WITH GRANT OPTION; 说明：root是登陆数据库的用户，123456是登陆数据库的密码，*就是意味着任何来源任何主机反正就是权限很大的样子。 2.最后配置好权限之后不应该忘记刷新使之生效 flush pri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mariadb远程连接授权的设置">
+<meta property="og:url" content="http://yoursite.com/2020/07/11/mariadb%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%8E%88%E6%9D%83%E7%9A%84%E8%AE%BE%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.首先配置允许访问的用户，采用授权的方式给用户权限 GRANT ALL PRIVILEGES ON . TO ‘root’@’%’IDENTIFIED BY ‘123456’ WITH GRANT OPTION; 说明：root是登陆数据库的用户，123456是登陆数据库的密码，*就是意味着任何来源任何主机反正就是权限很大的样子。 2.最后配置好权限之后不应该忘记刷新使之生效 flush pri">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-10T16:53:25.783Z">
+<meta property="article:modified_time" content="2020-06-17T15:01:55.956Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mariadb远程连接授权的设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/11/mariadb%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%8E%88%E6%9D%83%E7%9A%84%E8%AE%BE%E7%BD%AE/" class="article-date">
+  <time datetime="2020-07-10T16:53:25.783Z" itemprop="datePublished">2020-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mariadb远程连接授权的设置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.首先配置允许访问的用户，采用授权的方式给用户权限</p>
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’%’IDENTIFIED BY ‘123456’ WITH GRANT OPTION;<br> 说明：root是登陆数据库的用户，123456是登陆数据库的密码，*就是意味着任何来源任何主机反正就是权限很大的样子。</p>
+<p>2.最后配置好权限之后不应该忘记刷新使之生效</p>
+<p>flush privileges;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/11/mariadb%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%8E%88%E6%9D%83%E7%9A%84%E8%AE%BE%E7%BD%AE/" data-id="ckcggm4na000690q76pre5eqx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/11/PacketTooBigException/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PacketTooBigException
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/11/mysql5.7%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql5.7安装</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/11/PacketTooBigException/">PacketTooBigException</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/mariadb%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%8E%88%E6%9D%83%E7%9A%84%E8%AE%BE%E7%BD%AE/">mariadb远程连接授权的设置</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/mysql5.7%E5%AE%89%E8%A3%85/">mysql5.7安装</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/ConcurrentHashMap%E8%A7%A3%E6%9E%90/">ConcurrentHashMap解析</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/">centos7 yum成功配置安装Mariadb数据库</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

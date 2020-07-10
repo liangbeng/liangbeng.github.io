@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>centos7 yum成功配置安装Mariadb数据库 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CentOS 6 或早期的版本中提供的是 MySQL 的服务器&#x2F;客户端安装包，但 CentOS 7 已使用了 MariaDB 替代了默认的 MySQL。MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。 Linux下安装MariaDB官方文档参见：官网地址 全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7 yum成功配置安装Mariadb数据库">
+<meta property="og:url" content="http://yoursite.com/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CentOS 6 或早期的版本中提供的是 MySQL 的服务器&#x2F;客户端安装包，但 CentOS 7 已使用了 MariaDB 替代了默认的 MySQL。MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。 Linux下安装MariaDB官方文档参见：官网地址 全">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-10T16:53:25.767Z">
+<meta property="article:modified_time" content="2020-06-17T14:41:01.815Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-centos7 yum成功配置安装Mariadb数据库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/" class="article-date">
+  <time datetime="2020-07-10T16:53:25.767Z" itemprop="datePublished">2020-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      centos7 yum成功配置安装Mariadb数据库
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CentOS 6 或早期的版本中提供的是 MySQL 的服务器/客户端安装包，但 CentOS 7 已使用了 MariaDB 替代了默认的 MySQL。MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</p>
+<p>Linux下安装MariaDB官方文档参见：官网地址</p>
+<p>全部删除MySQL/MariaDB</p>
+<p>MySQL 已经不再包含在 CentOS 7 的源中，而改用了 MariaDB;</p>
+<p>1.使用（注意大小写）</p>
+<p>rpm -qa | grep MariaDB<br>rpm -qa | grep mariadb<br>搜索 MariaDB 现有的包；</p>
+<p>如果存在（删不了的话，就一个一个删），使用</p>
+<p>rpm -e –nodeps MariaDB-*<br>全部删除；</p>
+<p>2.使用</p>
+<p>rpm -qa | grep mysql<br>搜索 mysql 现有的包：</p>
+<p>如果存在(删除你实际查询出来的mysql结果即可)，使用</p>
+<p>yum remove mysql mysql-server mysql-libs compat-mysql51<br>全部删除；</p>
+<p>3.开始新的安装, 创建MariaDB.repo文件</p>
+<p>vim /etc/yum.repos.d/MariaDB.repo<br>插入一下内容，第二个我换成了国内源中科大的（有问题可查看，网址），（系统及版本选择（国外官网），选择安装你需要的版本，网址）：</p>
+<p>[mariadb]<br>name = MariaDB<br>baseurl = <a href="http://yum.mariadb.org/10.1/centos7-amd64" target="_blank" rel="noopener">http://yum.mariadb.org/10.1/centos7-amd64</a><br>gpgkey=<a href="https://yum.mariadb.org/RPM-GPG-KEY-MariaDB" target="_blank" rel="noopener">https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</a><br>gpgcheck=1<br>[mariadb]<br>name = MariaDB<br>baseurl = <a href="https://mirrors.ustc.edu.cn/mariadb/yum/10.1/centos7-amd64/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/mariadb/yum/10.1/centos7-amd64/</a><br>gpgkey=<a href="https://mirrors.ustc.edu.cn/mariadb/yum/RPM-GPG-KEY-MariaDB" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/mariadb/yum/RPM-GPG-KEY-MariaDB</a><br>gpgcheck=1<br>系统及版本选择，你可以根据这个网址（国内）去选择你想安装centos7 amd64位其他版本号的版本，网址。直接修改baseurl中的版本号即可。安装Mariadb之前，你可以先导入GPG key</p>
+<p>rpm –import <a href="https://yum.mariadb.org/RPM-GPG-KEY-MariaDB" target="_blank" rel="noopener">https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</a><br>4.运行安装命令安装MariaDB（安装过程可能会比较漫长，使用中科大的就快了）</p>
+<p>yum -y install MariaDB-server MariaDB-client<br>5.下载安装包，进行自动安装，安装成功之后启动MariaDB服务，并设为开机自启。</p>
+<p>systemctl start mariadb #启动服务<br>systemctl enable mariadb #设置开机启动</p>
+<p>systemctl restart mariadb #重新启动<br>systemctl stop mariadb.service #停止MariaDB<br>6.登录到数据库用</p>
+<p>mysql -uroot -p<br>登录到MariaDB，此时root账户的密码为空，直接回车即可，退出Mariadb，exit；即可。</p>
+<p>7.进行MariaDB的相关简单配置,使用</p>
+<p>mysql_secure_installation<br>命令进行配置（先退出数据库）。</p>
+<p>首先是设置密码，会提示先输入密码</p>
+<p>Enter current password for root (enter for none):&lt;–初次运行直接回车</p>
+<p>设置密码</p>
+<p>Set root password? [Y/n] &lt;– 是否设置root用户密码，输入y并回车或直接回车<br>New password: &lt;– 设置root用户的密码<br>Re-enter new password: &lt;– 再输入一次你设置的密码</p>
+<p>其他配置</p>
+<p>Remove anonymous users? [Y/n] &lt;– 是否删除匿名用户，回车</p>
+<p>Disallow root login remotely? [Y/n] &lt;–是否禁止root远程登录,回车（后面授权配置）</p>
+<p>Remove test database and access to it? [Y/n] &lt;– 是否删除test数据库，回车</p>
+<p>Reload privilege tables now? [Y/n] &lt;– 是否重新加载权限表，回车<br>初始化MariaDB完成，直接登录，成功。</p>
+<p>8.配置MariaDB的字符集</p>
+<p>使用vim /etc/my.cnf.d/server.cnf命令编辑server.cnf文件，在[mysqld]标签下添加:</p>
+<p>init_connect=’SET collation_connection = utf8_unicode_ci’<br>init_connect=’SET NAMES utf8’<br>character-set-server=utf8<br>collation-server=utf8_unicode_ci<br>skip-character-set-client-handshake<br>配置初始化完成，重启Mariadb。</p>
+<p>systemctl restart mariadb<br>之后进入Mariadb，查看字符集。</p>
+<p>show variables like “%character%”;show variables like “%collation%”;</p>
+<p>9.添加用户，设置权限</p>
+<p>创建用户命令（用户名，密码请自行修改）</p>
+<p>create user username@localhost identified by ‘password’;<br>授予外网登陆权限 </p>
+<p>grant all privileges on <em>.</em> to username@’%’ identified by ‘password’;</p>
+<p>select host,user,password from user;<br>简单的用户和权限配置就完成了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="ckcggm4n5000290q75z7ahqzw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/11/ConcurrentHashMap%E8%A7%A3%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ConcurrentHashMap解析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/11/centos7%E4%B8%8B%E5%AE%89%E8%A3%85redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">centos7下安装redis</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/11/PacketTooBigException/">PacketTooBigException</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/mariadb%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%8E%88%E6%9D%83%E7%9A%84%E8%AE%BE%E7%BD%AE/">mariadb远程连接授权的设置</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/mysql5.7%E5%AE%89%E8%A3%85/">mysql5.7安装</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/ConcurrentHashMap%E8%A7%A3%E6%9E%90/">ConcurrentHashMap解析</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/">centos7 yum成功配置安装Mariadb数据库</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
