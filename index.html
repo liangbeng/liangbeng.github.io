@@ -64,6 +64,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-解决idea控制台日志乱码问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/18/%E8%A7%A3%E5%86%B3idea%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A5%E5%BF%97%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2020-07-18T14:54:44.231Z" itemprop="datePublished">2020-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/18/%E8%A7%A3%E5%86%B3idea%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A5%E5%BF%97%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">解决idea控制台日志乱码问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.打开IntelliJ IDEA&gt;File&gt;Setting&gt;Editor&gt;File Encodings，将Global Encoding、Project Encoding、Default encodeing for properties files这三项都设置成UTF-8<br>2.点击help-&gt;Edit Custom VM Options 在末尾加上-Dfile.encoding=UTF-8<br>3.在idea 配置tomcat 里的VM optin 加上-Dfile.encoding=UTF-8<br>4.修改tomcat-&gt;conf下的logging.properties文件 java.util.logging.ConsoleHandler.encoding = UTF-8</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/18/%E8%A7%A3%E5%86%B3idea%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A5%E5%BF%97%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" data-id="ckcrsovkt0002o8q7cgi70w7y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-PacketTooBigException" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/11/PacketTooBigException/" class="article-date">
@@ -95,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/11/PacketTooBigException/" data-id="ckcghi24s0002joq7azfv4wrl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/11/PacketTooBigException/" data-id="ckcrsovk60000o8q7auowe560" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/11/mariadb%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%8E%88%E6%9D%83%E7%9A%84%E8%AE%BE%E7%BD%AE/" data-id="ckcghi24y0005joq7cpjxdbb0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/11/mariadb%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%8E%88%E6%9D%83%E7%9A%84%E8%AE%BE%E7%BD%AE/" data-id="ckcrsovkp0001o8q7bxf534c0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/11/mysql5.7%E5%AE%89%E8%A3%85/" data-id="ckcghi24z0006joq7bqttdnp8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/11/mysql5.7%E5%AE%89%E8%A3%85/" data-id="ckcrsovlg0004o8q7776050ev" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/11/ConcurrentHashMap%E8%A7%A3%E6%9E%90/" data-id="ckcghi24g0000joq7a6og915f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/11/ConcurrentHashMap%E8%A7%A3%E6%9E%90/" data-id="ckcrsovle0003o8q7d8fzajeo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,69 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="ckcghi24q0001joq74gmw7yb8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-centos7下安装redis" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/11/centos7%E4%B8%8B%E5%AE%89%E8%A3%85redis/" class="article-date">
-  <time datetime="2020-07-10T16:53:25.767Z" itemprop="datePublished">2020-07-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/11/centos7%E4%B8%8B%E5%AE%89%E8%A3%85redis/">centos7下安装redis</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一步：下载redis安装包<br>cd /user/local<br>wget <a href="http://download.redis.io/releases/redis-4.0.6.tar.gz" target="_blank" rel="noopener">http://download.redis.io/releases/redis-4.0.6.tar.gz</a></p>
-<p>第二步：解压压缩包<br>tar -zxvf redis-4.0.6.tar.gz</p>
-<p>第三步：yum安装gcc依赖<br>yum install gcc</p>
-<p>第四步：跳转到redis解压目录下<br> cd redis-4.0.6</p>
-<p> 第五步：编译安装<br>make MALLOC=libc　</p>
-<p>将/usr/local/redis-4.0.6/src目录下的文件加到/usr/local/bin目录</p>
-<p>cd src &amp;&amp; make install</p>
-<p>启动redis的三种方式<br>1、直接启动redis,在src下执行<br>./redis-server</p>
-<p>按 ctrl + c可以关闭窗口。</p>
-<p>2、以后台进程方式启动redis<br>第一步：修改redis.conf文件<br>将<br>daemonize no<br>改为yes<br>第二步：指定redis.conf文件启动<br>./redis-server /usr/local/redis-4.0.6/redis.conf</p>
-<p>第三步：关闭redis进程<br>首先使用ps -aux | grep redis查看redis进程<br>kill该进程</p>
-<p>设置redis开机自启动</p>
-<p>1、在/etc目录下新建redis目录</p>
-<p>mkdir redis</p>
-<p>2、将/usr/local/redis-4.0.6/redis.conf 文件复制一份到/etc/redis目录下，并命名为6379.conf　　<br> cp /usr/local/redis-4.0.6/redis.conf /etc/redis/6379.conf</p>
-<p> 3、将redis的启动脚本复制一份放到/etc/init.d目录下<br>  cp /usr/local/redis-4.0.6/utils/redis_init_script /etc/init.d/redisd</p>
-<p>  4、设置redis开机自启动</p>
-<p>先切换到/etc/init.d目录下<br>使用vim编辑redisd文件，在第一行加入如下两行注释，保存退出<br>#!/bin/sh</p>
-<h1 id="chkconfig-2345-90-10"><a href="#chkconfig-2345-90-10" class="headerlink" title="chkconfig:   2345 90 10"></a>chkconfig:   2345 90 10</h1><h1 id="description-Redis-is-a-persistent-key-value-database"><a href="#description-Redis-is-a-persistent-key-value-database" class="headerlink" title="description:  Redis is a persistent key-value database"></a>description:  Redis is a persistent key-value database</h1><p>注释的意思是，redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10</p>
-<p>执行开机自启命令，成功</p>
-<p>现在可以直接已服务的形式启动和关闭redis了</p>
-<p>启动：</p>
-<p>service redisd start<br>用ps aux | grep redis 查看是否启动</p>
-<p>如果出现如下问题：</p>
-<p>[root@iZwz991stxdwj560bfmadtZ ~]# service redisd start<br>/var/run/redis_6379.pid exists, process is already running or crashed<br>执行以下命令即可：<br>rm -rf /var/run/redis_6379.pid</p>
-<p>注意根据需要，可以修改redis.conf 的bind 0.0.0.0 还有protected-mode no以及requirepass</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/11/centos7%E4%B8%8B%E5%AE%89%E8%A3%85redis/" data-id="ckcghi24u0003joq74zh4hl6o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="ckcrsovli0005o8q708zf02gg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -436,7 +411,69 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/11/centos7%E5%AE%89%E8%A3%85nginx%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/" data-id="ckcghi24w0004joq78n2z5y75" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/11/centos7%E5%AE%89%E8%A3%85nginx%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/" data-id="ckcrsovn20006o8q748mu88b6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos7下安装redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/11/centos7%E4%B8%8B%E5%AE%89%E8%A3%85redis/" class="article-date">
+  <time datetime="2020-07-10T16:53:25.767Z" itemprop="datePublished">2020-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/11/centos7%E4%B8%8B%E5%AE%89%E8%A3%85redis/">centos7下安装redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一步：下载redis安装包<br>cd /user/local<br>wget <a href="http://download.redis.io/releases/redis-4.0.6.tar.gz" target="_blank" rel="noopener">http://download.redis.io/releases/redis-4.0.6.tar.gz</a></p>
+<p>第二步：解压压缩包<br>tar -zxvf redis-4.0.6.tar.gz</p>
+<p>第三步：yum安装gcc依赖<br>yum install gcc</p>
+<p>第四步：跳转到redis解压目录下<br> cd redis-4.0.6</p>
+<p> 第五步：编译安装<br>make MALLOC=libc　</p>
+<p>将/usr/local/redis-4.0.6/src目录下的文件加到/usr/local/bin目录</p>
+<p>cd src &amp;&amp; make install</p>
+<p>启动redis的三种方式<br>1、直接启动redis,在src下执行<br>./redis-server</p>
+<p>按 ctrl + c可以关闭窗口。</p>
+<p>2、以后台进程方式启动redis<br>第一步：修改redis.conf文件<br>将<br>daemonize no<br>改为yes<br>第二步：指定redis.conf文件启动<br>./redis-server /usr/local/redis-4.0.6/redis.conf</p>
+<p>第三步：关闭redis进程<br>首先使用ps -aux | grep redis查看redis进程<br>kill该进程</p>
+<p>设置redis开机自启动</p>
+<p>1、在/etc目录下新建redis目录</p>
+<p>mkdir redis</p>
+<p>2、将/usr/local/redis-4.0.6/redis.conf 文件复制一份到/etc/redis目录下，并命名为6379.conf　　<br> cp /usr/local/redis-4.0.6/redis.conf /etc/redis/6379.conf</p>
+<p> 3、将redis的启动脚本复制一份放到/etc/init.d目录下<br>  cp /usr/local/redis-4.0.6/utils/redis_init_script /etc/init.d/redisd</p>
+<p>  4、设置redis开机自启动</p>
+<p>先切换到/etc/init.d目录下<br>使用vim编辑redisd文件，在第一行加入如下两行注释，保存退出<br>#!/bin/sh</p>
+<h1 id="chkconfig-2345-90-10"><a href="#chkconfig-2345-90-10" class="headerlink" title="chkconfig:   2345 90 10"></a>chkconfig:   2345 90 10</h1><h1 id="description-Redis-is-a-persistent-key-value-database"><a href="#description-Redis-is-a-persistent-key-value-database" class="headerlink" title="description:  Redis is a persistent key-value database"></a>description:  Redis is a persistent key-value database</h1><p>注释的意思是，redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10</p>
+<p>执行开机自启命令，成功</p>
+<p>现在可以直接已服务的形式启动和关闭redis了</p>
+<p>启动：</p>
+<p>service redisd start<br>用ps aux | grep redis 查看是否启动</p>
+<p>如果出现如下问题：</p>
+<p>[root@iZwz991stxdwj560bfmadtZ ~]# service redisd start<br>/var/run/redis_6379.pid exists, process is already running or crashed<br>执行以下命令即可：<br>rm -rf /var/run/redis_6379.pid</p>
+<p>注意根据需要，可以修改redis.conf 的bind 0.0.0.0 还有protected-mode no以及requirepass</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/11/centos7%E4%B8%8B%E5%AE%89%E8%A3%85redis/" data-id="ckcrsovn30007o8q7fk5r2n3y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -477,6 +514,10 @@
       <ul>
         
           <li>
+            <a href="/2020/07/18/%E8%A7%A3%E5%86%B3idea%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A5%E5%BF%97%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">解决idea控制台日志乱码问题</a>
+          </li>
+        
+          <li>
             <a href="/2020/07/11/PacketTooBigException/">PacketTooBigException</a>
           </li>
         
@@ -490,10 +531,6 @@
         
           <li>
             <a href="/2020/07/11/ConcurrentHashMap%E8%A7%A3%E6%9E%90/">ConcurrentHashMap解析</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/11/centos7%20yum%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85Mariadb%E6%95%B0%E6%8D%AE%E5%BA%93/">centos7 yum成功配置安装Mariadb数据库</a>
           </li>
         
       </ul>
